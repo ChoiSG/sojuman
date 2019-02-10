@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['sojuman.py'],
-             pathex=['/home/go/sojuman'],
+             pathex=['/etc/elasticsearch/dist/dist'],
              binaries=[],
              datas=[],
              hiddenimports=[],
